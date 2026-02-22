@@ -28,7 +28,7 @@ def generic_trend_indicator(close, length):
     """
     return ta.sma(close=pd.Series(close), length=length).to_numpy()
 
-class ValkyrieOptimizer(Strategy):
+class TrendOptimizer(Strategy):
     # [SANITIZED] Proprietary parameters replaced with generic bounds for optimizer testing
     length = 10
     base_tp = 1.40
@@ -122,7 +122,7 @@ report = []
 # Iterative Walk-Forward Grid Search
 for iter in tqdm(iterations):
     df_is = df[(df.index >= iter['in_sample'][0]) & (df.index <= iter['in_sample'][1])]
-    bt_is = Backtest(df_is, ValkyrieOptimizer, cash=100_000_000, commission=.0005, exclusive_orders=True)
+    bt_is = Backtest(df_is, TrendOptimizer, cash=100_000_000, commission=.0005, exclusive_orders=True)
     
     stats_is, heatmap = bt_is.optimize(
         # [SANITIZED] Proprietary parameter search grids commented out to protect edge.

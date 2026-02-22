@@ -79,15 +79,44 @@ sleep(2)
 
 # [SANITIZED] Generic params replacing proprietary trend/volatility variables
 GENERIC_FAST_MA = getattr(cfg, 'fast_ma', 10)
+logging.info(f"GENERIC_FAST_MA = {GENERIC_FAST_MA}")
+info_message(f"GENERIC_FAST_MA = {GENERIC_FAST_MA}", StrategyState.ST)
+
 GENERIC_SLOW_MA = getattr(cfg, 'slow_ma', 50)
+logging.info(f"GENERIC_SLOW_MA = {GENERIC_SLOW_MA}")
+info_message(f"GENERIC_SLOW_MA = {GENERIC_SLOW_MA}",StrategyState.ST)
+
 SLL1 = cfg.sll1
+logging.info(f"SLL1 = {SLL1}")
+info_message(f"SLL1 = {SLL1}", StrategyState.ST)
+
 TPL = cfg.tpl
+logging.info(f"TPL = {TPL}")
+info_message(f"TPL = {TPL}", StrategyState.ST)
+
 H1_CLOSE = cfg.h1_close
+logging.info(f"H1_CLOSE = {H1_CLOSE}")
+info_message(f"H1_CLOSE = {H1_CLOSE}", StrategyState.ST)
+
 H2_SL = cfg.h2_sl
+logging.info(f"H2_SL = {H2_SL}")
+info_message(f"H2_SL = {H2_SL}", StrategyState.ST)
+
 MAX_LEVERAGE = cfg.max_leverage
+logging.info(f"MAX_LEVERAGE = {MAX_LEVERAGE}")
+info_message(f"MAX_LEVERAGE = {MAX_LEVERAGE}", StrategyState.ST)
+
 MIN_LEVERAGE = cfg.min_leverage
+logging.info(f"MIN_LEVERAGE = {MIN_LEVERAGE}")
+info_message(f"MIN_LEVERAGE = {MIN_LEVERAGE}", StrategyState.ST)
+
 PROFIT_THRESHOLD = cfg.profit_threshold
+logging.info(f"PROFIT_THRESHOLD = {PROFIT_THRESHOLD}")
+info_message(f"PROFIT_THRESHOLD = {PROFIT_THRESHOLD}", StrategyState.ST)
+
 DRAWDOWN_THRESHOLD = cfg.drawdown_threshold
+logging.info(f"DRAWDOWN_THRESHOLD = {DRAWDOWN_THRESHOLD}")
+info_message(f"DRAWDOWN_THRESHOLD = {DRAWDOWN_THRESHOLD}", StrategyState.ST)
 
 sleep(2)
 
@@ -513,6 +542,7 @@ while True:
 
     except Exception as e:
         logging.error(f"Loop Error: {e}")
+        error_message(f"Loop Error: {e}", StrategyState.VK)
         traceback.print_exc()
 
     time.sleep(0.5)

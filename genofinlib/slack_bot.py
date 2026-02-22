@@ -3,10 +3,17 @@ import threading
 from enum import Enum
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
-import config
+import trader.config as config
+import trader.config_test as config_test
+from trader.valkyrie_trader import IS_TESTNET
 
-SLACK_TOKEN = config.slack_token
-SLACK_CHANNEL = config.slack_channel
+if IS_TESTNET:
+    cfg = config_test
+else:
+    cfg = config
+
+SLACK_TOKEN = cfg.slack_token
+SLACK_CHANNEL = cfg.slack_channel
 
 
 class StrategyState(Enum):

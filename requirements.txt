@@ -1,0 +1,21 @@
+# --- Core Trading & API ---
+websocket-client # WebSocket connection management (NOT 'websocket')
+requests       # Standard HTTP requests
+
+# --- Data Manipulation & Analysis ---
+pandas          # Dataframes for OHLCV and logic
+numpy             # Mathematical operations
+pandas_ta     # Technical Analysis (SuperTrend, ATR, etc.)
+
+# --- Backtesting & Optimization & Visualization ---
+matplotlib      # Plotting backtest results
+plotly       # 3D Volatility Surface Visualization (Quant Master)
+tqdm          # Progress bars for long optimizations
+scipy       # Statistical functions (Black-Scholes, Interpolation)
+
+# --- AI & LLM Integration ---
+google-genai    # Google Gemini API (New Client Library)
+
+# --- Notifications (Optional depending on your slack_bot implementation) ---
+slack_sdk       # Official Slack SDK (if used inside slack_bot.py)
+ccxt        # For data
